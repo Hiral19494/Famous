@@ -3,4 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="black">#000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="colorPrimaryLogin">#E43F3F</color>
+    <color name="primary_dark_login">#E12929</color>
+    <color name="primary_darker_login">#CC1D1D</color>
+    <color name="product_name">#535353</color>
+    <color name="product_description">#a9a9a9</color>
 </resources>
