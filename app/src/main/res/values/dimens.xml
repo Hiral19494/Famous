@@ -1,0 +1,13 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="user_id">15dp</dimen>
+    <dimen name="padding">5dp</dimen>
+    <dimen name="padd_10">10dp</dimen>
+    <dimen name="ic_delete">30dp</dimen>
+    <dimen name="product_img">90dp</dimen>
+    <dimen name="activity_padding_horizontal">16dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="logo_w">256dp</dimen>
+    <dimen name="logo_h">128dp</dimen>
+</resources>
