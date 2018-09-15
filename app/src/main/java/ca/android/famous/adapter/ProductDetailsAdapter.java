@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
-import java.net.URL;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -55,7 +54,7 @@ public class ProductDetailsAdapter extends RecyclerView.Adapter<ProductDetailsAd
 
 
             try {
-                Glide.with(context).setDefaultRequestOptions(requestOptions).load(new URL(productModel.getImages().get(1))).into(holder.imgProduct);;
+                Glide.with(context).setDefaultRequestOptions(requestOptions).load((productModel.getImages().get(1))).into(holder.imgProduct);;
             } catch (Exception e) {
                 e.printStackTrace();
             }

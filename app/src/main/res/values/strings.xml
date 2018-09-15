@@ -2,5 +2,11 @@
     <string name="app_name">Famous</string>
     <string name="facebook_app_id">323295021553505</string>
     <string name="fb_login_protocol_scheme">fb323295021553505</string>
-
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="action_send">Send</string>
+    <string name="action_send_condition_sms">Send Condition SMS</string>
+    <string name="phone_number_hint">912345678</string>
+    <string name="toast_sending_sms">Sending sms…</string>
+    <string name="error_invalid_phone_number">Invalid phone number</string>
+    <string name="your_cellphone_number">To:</string>
 </resources>

@@ -6,6 +6,7 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.GestureDetector;
 import android.view.View;
 
+import ca.android.famous.ProductActivity;
 import ca.android.famous.adapter.ProductDetailsAdapter;
 
 /**
@@ -22,6 +23,10 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
         this.listener = listener;
     }
 
+    public RecyclerItemTouchHelper(int dragDirs, int left, ProductActivity productActivity) {
+        super(dragDirs,left);
+
+    }
 
 
     @Override

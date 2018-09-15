@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+
+<!--    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@android:color/transparent"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:statusBarScrim="@android:color/transparent">-->
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:id="@+id/d">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:padding="@dimen/padd_10"/>
+
+            <com.viewpagerindicator.CirclePageIndicator
+                android:id="@+id/indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="bottom"
+                android:padding="10dp" />
+
+            <!--<android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                app:layout_collapseMode="pin" />-->
+</RelativeLayout>
+   <!--     </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>-->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/d">
+        <TextView
+            android:id="@+id/txv_product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@id/img_product"
+            android:paddingTop="@dimen/user_id"
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txv_product_name"
+            android:paddingTop="@dimen/user_id"
+            android:text="des"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/txv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txv_description"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="@dimen/user_id"
+            android:textColor="@color/primary_darker_login"
+            android:textSize="25dp" />
+
+
+        <TextView
+            android:id="@+id/txv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txv_price"
+            android:layout_toRightOf="@id/img_product"
+            android:drawableLeft="@mipmap/sms"
+            android:paddingTop="@dimen/user_id"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/txv_web"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txv_phone"
+            android:padding="@dimen/user_id"
+            android:paddingTop="@dimen/user_id"
+            android:text="web"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/txv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txv_web"
+            android:padding="@dimen/user_id"
+            android:paddingTop="@dimen/user_id"
+            android:text="wcdncdsneb"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txv"
+            android:padding="@dimen/user_id"
+            android:paddingTop="@dimen/user_id"
+            android:text="wcdmdmvm,cv,ncdsneb"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
