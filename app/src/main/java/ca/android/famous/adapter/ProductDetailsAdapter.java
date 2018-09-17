@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.util.List;
@@ -54,7 +55,12 @@ public class ProductDetailsAdapter extends RecyclerView.Adapter<ProductDetailsAd
 
 
             try {
-                Glide.with(context).setDefaultRequestOptions(requestOptions).load((productModel.getImages().get(1))).into(holder.imgProduct);;
+                Glide.with(context).asBitmap().load(productModel.getImages().get(0))
+                        .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE)
+                                .dontTransform().dontAnimate()
+                                .override(90,90))
+                        .into(holder.imgProduct);
+               // Glide.with(context).setDefaultRequestOptions(requestOptions).load((productModel.getImages().get(1))).into(holder.imgProduct);;
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -3,14 +3,13 @@ package ca.android.famous.adapter;
 import android.content.Context;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
@@ -39,27 +38,30 @@ public class SlidingImageAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return imageModelArrayList.size();
     }
 
+    @Override
     public Object instantiateItem(ViewGroup view, int position) {
         View imageLayout = inflater.inflate(R.layout.sliding_image, view, false);
 
         assert imageLayout != null;
         ImageView imageView = (ImageView) imageLayout
-                .findViewById(R.id.image);
-        RequestOptions requestOptions = new RequestOptions();
-        requestOptions.placeholder(R.drawable.ic_launcher_background);
-        requestOptions.error(R.drawable.ic_launcher_foreground);
-        Log.d("imge", String.valueOf(imageModelArrayList.size()));
-        Toast.makeText(context, "size:"+imageModelArrayList.size(), Toast.LENGTH_SHORT).show();
-        Glide.with(context)
-                .load(imageModelArrayList.get(position))
-                .apply(requestOptions)
-                .into(imageView);
-         imageView.setImageResource(Integer.parseInt(imageModelArrayList.get(position).getImage_drawable()));
+                .findViewById(R.id.image_slide);
+        try {
+            Glide.with(context).asBitmap().load(imageModelArrayList.get(position).getImage_drawable())
+                    .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.ALL)
+                            .dontTransform().dontAnimate()
+                            .override(150, 150))
+                    .into(imageView);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
-        view.addView(imageLayout);
+
+
+
+        view.addView(imageLayout, 0);
 
         return imageLayout;
     }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -139,10 +140,11 @@ public class ProductDetailsFragment extends Fragment {
         if (product.getImages() != null) {
             for (int i = 0; i < product.getImages().size() ;i++) {
                 ImageModel imageModel = new ImageModel();
-                imageModel.setImage_drawable(product.getImages().get(i));
+                imageModel.setImage_drawable((product.getImages().get(i)));
                 list.add(imageModel);
             }
         }
+        Log.d("list", String.valueOf(list));
         Toast.makeText(getContext(),"imagee"+list,Toast.LENGTH_LONG).show();
         return list;
     }

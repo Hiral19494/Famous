@@ -3,8 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
-        android:id="@+id/image"
-        android:layout_width="match_parent"
+        android:id="@+id/image_slide"
+        android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@mipmap/ic_launcher"
+        android:layout_centerHorizontal="true"
+        android:padding="@dimen/padd_10"/>
 </RelativeLayout>
