@@ -19,6 +19,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -127,10 +128,27 @@ public class MapFragment extends Fragment {
 
     private String getDirectionsUrl() {
         // Origin of route
+        MarkerOptions optionOrigin = new MarkerOptions();
         String str_origin = "origin=" + latitude + "," + longitude;
 
-        // Destination of route
+        LatLng latLngOrigin = new LatLng(latitude,longitude);
+        optionOrigin.position(latLngOrigin);
+        if(str_origin!= null) {
+            optionOrigin.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+            mGoogleMap.addMarker(optionOrigin);
+
+        }
         String str_dest = "destination=" + product.getWarehouseLocation().getLatitude() + "," + product.getWarehouseLocation().getLongitude();
+        MarkerOptions optionDest= new MarkerOptions();
+        LatLng latLngDest = new LatLng(product.getWarehouseLocation().getLatitude(),product.getWarehouseLocation().getLongitude());
+        optionDest.position(latLngDest);
+        if(str_dest!= null) {
+            optionDest.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+            mGoogleMap.addMarker(optionDest);
+
+        }
+        // Destination of route
+
 
         // Sensor enabled
         String sensor = "sensor=false";
@@ -229,7 +247,7 @@ public class MapFragment extends Fragment {
                     points.add(position);
                 }
                 mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(position));
-                mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(10));
+                mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(20));
                 lineOptions.addAll(points);
 
                 //  lineOptions.geodesic(true);

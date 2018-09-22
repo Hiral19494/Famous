@@ -59,8 +59,6 @@ public class SlidingImageAdapter extends PagerAdapter {
         }
 
 
-
-
         view.addView(imageLayout, 0);
 
         return imageLayout;

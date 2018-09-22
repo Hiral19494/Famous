@@ -9,4 +9,5 @@
     <string name="toast_sending_sms">Sending sms…</string>
     <string name="error_invalid_phone_number">Invalid phone number</string>
     <string name="your_cellphone_number">To:</string>
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
 </resources>

@@ -1,12 +1,11 @@
 package ca.android.famous.map;
 
-import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -15,13 +14,13 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
 public class GPSService extends Service implements LocationListener {
+
     // saving the context for later use
     private final Context mContext;
 
@@ -57,25 +56,17 @@ public class GPSService extends Service implements LocationListener {
      *
      * @return Location or null if no location is found
      */
+    @SuppressLint("MissingPermission")
     public Location getLocation() {
         try {
-
 
             // Getting GPS status
             isGPSEnabled = mLocationManager
                     .isProviderEnabled(LocationManager.GPS_PROVIDER);
-            if (ActivityCompat.checkSelfPermission(getBaseContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getBaseContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-                return mLocation;
-            }
+
             // If GPS enabled, get latitude/longitude using GPS Services
             if (isGPSEnabled) {
+
                 mLocationManager.requestLocationUpdates(
                         LocationManager.GPS_PROVIDER, TIME, DISTANCE, this);
                 if (mLocationManager != null) {
