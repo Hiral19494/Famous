@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.util.Log;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.CallbackManager;
@@ -35,8 +34,7 @@ public class LoginActivity extends BaseActivity {
     TextInputLayout tilEmail;
     @BindView(R.id.til_password)
     TextInputLayout tilPassword;
-    @BindView(R.id.link_signup)
-    TextView txvLink;
+
     CallbackManager callbackManager;
 
     private static final String EMAIL = "email";
@@ -98,27 +96,26 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onResponse(Call<UserInfo> call, Response<UserInfo> response) {
                 Log.d("token", String.valueOf(response.body().getToken()));
-
-                prefManager.saveLoginDetails(response.body().getToken());
-                Intent homeScreenIntent = new Intent(LoginActivity.this, ProductActivity.class);
-                startActivity(homeScreenIntent);
-                finish();
+                if (response.body().getToken() != null) {
+                    prefManager.saveLoginDetails(response.body().getToken());
+                    Intent homeScreenIntent = new Intent(LoginActivity.this, ProductActivity.class);
+                    startActivity(homeScreenIntent);
+                    finish();
+                }
+                else{
+                    Toast.makeText(getBaseContext(),"Email and Password not match",Toast.LENGTH_LONG).show();
+                }
             }
+
 
             @Override
             public void onFailure(Call<UserInfo> call, Throwable t) {
                 t.printStackTrace();
+                Toast.makeText(getBaseContext(),"Email and Password not match",Toast.LENGTH_LONG).show();
             }
         });
     }
 
-    @OnClick(R.id.link_signup)
-    public void onClickLink() {
-
-       // Intent signupIntent = new Intent(LoginActivity.this,SignUpActivity.class);
-        //startActivity(signupIntent);
-
-    }
 
 
 }

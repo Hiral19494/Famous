@@ -143,7 +143,7 @@ public class MapFragment extends Fragment {
         LatLng latLngDest = new LatLng(product.getWarehouseLocation().getLatitude(),product.getWarehouseLocation().getLongitude());
         optionDest.position(latLngDest);
         if(str_dest!= null) {
-            optionDest.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+            optionDest.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
             mGoogleMap.addMarker(optionDest);
 
         }
